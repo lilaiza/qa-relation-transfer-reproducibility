@@ -1,0 +1,855 @@
+{
+  "layers": [
+    {
+      "layer": 1,
+      "n": 3678,
+      "baseline": {
+        "target_recall_at_1": 0.9597607395323545,
+        "target_recall_at_3": 1.0,
+        "target_mrr": 0.9795178539061085
+      },
+      "effects": {
+        "self_patch": {
+          "n": 3678,
+          "mean_donor_advantage_change": 0.0,
+          "bootstrap_low": 0.0,
+          "bootstrap_high": 0.0,
+          "permutation_pvalue": 1.0,
+          "positive_rate": 0.0
+        },
+        "same_entity_donor": {
+          "n": 3678,
+          "mean_donor_advantage_change": 0.36361232351323325,
+          "bootstrap_low": 0.3595107590993375,
+          "bootstrap_high": 0.36758881551256606,
+          "permutation_pvalue": 4.999750012499375e-05,
+          "positive_rate": 1.0
+        },
+        "same_entity_control": {
+          "n": 3678,
+          "mean_donor_advantage_change": 0.17299369090986744,
+          "bootstrap_low": 0.16991134228761134,
+          "bootstrap_high": 0.1760246514560996,
+          "permutation_pvalue": 4.999750012499375e-05,
+          "positive_rate": 0.9951060358890701
+        },
+        "different_entity_donor": {
+          "n": 3678,
+          "mean_donor_advantage_change": 0.36269414133193245,
+          "bootstrap_low": 0.358669555337736,
+          "bootstrap_high": 0.3666593438726427,
+          "permutation_pvalue": 4.999750012499375e-05,
+          "positive_rate": 1.0
+        }
+      },
+      "specificity_margin": 0.09576840739233328,
+      "relation_semantics": {
+        "donor_vs_relation_control": {
+          "n": 3678,
+          "mean_donor_advantage_difference": 0.1906186326033658,
+          "bootstrap_low": 0.18637057063617968,
+          "bootstrap_high": 0.19462572060172942,
+          "permutation_pvalue": 4.999750012499375e-05
+        },
+        "portable_donor_effect": {
+          "n": 3678,
+          "mean_donor_advantage_change": 0.36269414133193245,
+          "bootstrap_low": 0.358669555337736,
+          "bootstrap_high": 0.3666593438726427,
+          "permutation_pvalue": 4.999750012499375e-05,
+          "positive_rate": 1.0
+        }
+      }
+    }
+  ],
+  "directions": {
+    "1": {
+      "P106->P19": {
+        "layer": 1,
+        "n": 448,
+        "baseline": {
+          "target_recall_at_1": 0.9955357142857143,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 0.9973958333333334
+        },
+        "effects": {
+          "self_patch": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.32624965008082135,
+            "bootstrap_low": 0.31971584632826433,
+            "bootstrap_high": 0.33320535994633765,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.24476165976375341,
+            "bootstrap_low": 0.23535244424960444,
+            "bootstrap_high": 0.2538340051309206,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.32599729106628467,
+            "bootstrap_low": 0.3193650733197241,
+            "bootstrap_high": 0.3328452907984943,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.040870174665802284,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 448,
+            "mean_donor_advantage_difference": 0.08148799031706792,
+            "bootstrap_low": 0.07314088305491688,
+            "bootstrap_high": 0.0902139805706351,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.32599729106628467,
+            "bootstrap_low": 0.3193650733197241,
+            "bootstrap_high": 0.3328452907984943,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P106->P27": {
+        "layer": 1,
+        "n": 138,
+        "baseline": {
+          "target_recall_at_1": 0.9782608695652174,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 0.9879227053140095
+        },
+        "effects": {
+          "self_patch": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.26231212762818823,
+            "bootstrap_low": 0.25327605308181994,
+            "bootstrap_high": 0.2713242634267047,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.1165744467921879,
+            "bootstrap_low": 0.10952645934362343,
+            "bootstrap_high": 0.12382637754730555,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.2615807138491368,
+            "bootstrap_low": 0.2527113303650117,
+            "bootstrap_high": 0.27051523063277855,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.07323454730752588,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 138,
+            "mean_donor_advantage_difference": 0.1457376808360003,
+            "bootstrap_low": 0.13887292767564458,
+            "bootstrap_high": 0.1525237957852474,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.2615807138491368,
+            "bootstrap_low": 0.2527113303650117,
+            "bootstrap_high": 0.27051523063277855,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P106->P569": {
+        "layer": 1,
+        "n": 376,
+        "baseline": {
+          "target_recall_at_1": 0.9973404255319149,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 0.9986702127659575
+        },
+        "effects": {
+          "self_patch": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.4418960302434069,
+            "bootstrap_low": 0.43416368043287956,
+            "bootstrap_high": 0.44949453076189183,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.2451480657179305,
+            "bootstrap_low": 0.23774972512842493,
+            "bootstrap_high": 0.25244128203138394,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.44271512583215183,
+            "bootstrap_low": 0.43488441678952977,
+            "bootstrap_high": 0.45027977297122174,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.09796443446836572,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 376,
+            "mean_donor_advantage_difference": 0.1967479645254764,
+            "bootstrap_low": 0.1910581942350465,
+            "bootstrap_high": 0.20239010902042404,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.44271512583215183,
+            "bootstrap_low": 0.43488441678952977,
+            "bootstrap_high": 0.45027977297122174,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P19->P106": {
+        "layer": 1,
+        "n": 448,
+        "baseline": {
+          "target_recall_at_1": 0.8839285714285714,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 0.941220238095238
+        },
+        "effects": {
+          "self_patch": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.4156101284814732,
+            "bootstrap_low": 0.4078841619459646,
+            "bootstrap_high": 0.4232143182390635,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.11645956836374742,
+            "bootstrap_low": 0.10785662909703594,
+            "bootstrap_high": 0.1255291145960135,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 0.9977678571428571
+          },
+          "different_entity_donor": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.41264267079532146,
+            "bootstrap_low": 0.40486489022982175,
+            "bootstrap_high": 0.4202034929850405,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.1510590089019388,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 448,
+            "mean_donor_advantage_difference": 0.29915056011772584,
+            "bootstrap_low": 0.2888789961813018,
+            "bootstrap_high": 0.3091248020779208,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 448,
+            "mean_donor_advantage_change": 0.41264267079532146,
+            "bootstrap_low": 0.40486489022982175,
+            "bootstrap_high": 0.4202034929850405,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P19->P27": {
+        "layer": 1,
+        "n": 237,
+        "baseline": {
+          "target_recall_at_1": 0.9156118143459916,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 0.9571026722925456
+        },
+        "effects": {
+          "self_patch": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.4483521199679073,
+            "bootstrap_low": 0.44036046114086097,
+            "bootstrap_high": 0.45707913772654934,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.16322757184253966,
+            "bootstrap_low": 0.15190676051164478,
+            "bootstrap_high": 0.17461255370375978,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.44750860760986555,
+            "bootstrap_low": 0.43957249116356867,
+            "bootstrap_high": 0.456226399138507,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.1429840302417047,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 237,
+            "mean_donor_advantage_difference": 0.28512454812536764,
+            "bootstrap_low": 0.27286567112375915,
+            "bootstrap_high": 0.29724845703895586,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.44750860760986555,
+            "bootstrap_low": 0.43957249116356867,
+            "bootstrap_high": 0.456226399138507,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P19->P569": {
+        "layer": 1,
+        "n": 475,
+        "baseline": {
+          "target_recall_at_1": 0.8526315789473684,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 0.9252631578947368
+        },
+        "effects": {
+          "self_patch": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.2267443289254841,
+            "bootstrap_low": 0.22339924552566126,
+            "bootstrap_high": 0.2303914065549248,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.0635199823505,
+            "bootstrap_low": 0.06026230730351649,
+            "bootstrap_high": 0.066786397446143,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 0.9642105263157895
+          },
+          "different_entity_donor": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.22701800133052624,
+            "bootstrap_low": 0.22373320415772888,
+            "bootstrap_high": 0.2307698383456782,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.08147533708497098,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 475,
+            "mean_donor_advantage_difference": 0.1632243465749841,
+            "bootstrap_low": 0.15967107535977113,
+            "bootstrap_high": 0.16692236258795387,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.22701800133052624,
+            "bootstrap_low": 0.22373320415772888,
+            "bootstrap_high": 0.2307698383456782,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P27->P106": {
+        "layer": 1,
+        "n": 138,
+        "baseline": {
+          "target_recall_at_1": 1.0,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 1.0
+        },
+        "effects": {
+          "self_patch": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.2615682862807011,
+            "bootstrap_low": 0.2527882236501445,
+            "bootstrap_high": 0.27047966462762457,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.14532319920650427,
+            "bootstrap_low": 0.13843019695385644,
+            "bootstrap_high": 0.15210766835489137,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.2587907616642938,
+            "bootstrap_low": 0.2501435670407786,
+            "bootstrap_high": 0.26776234128552934,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.059511305845302065,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 138,
+            "mean_donor_advantage_difference": 0.11624508707419685,
+            "bootstrap_low": 0.10913508547388989,
+            "bootstrap_high": 0.12347247742008471,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 138,
+            "mean_donor_advantage_change": 0.2587907616642938,
+            "bootstrap_low": 0.2501435670407786,
+            "bootstrap_high": 0.26776234128552934,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P27->P19": {
+        "layer": 1,
+        "n": 237,
+        "baseline": {
+          "target_recall_at_1": 1.0,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 1.0
+        },
+        "effects": {
+          "self_patch": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.3834142700026307,
+            "bootstrap_low": 0.3759944924605295,
+            "bootstrap_high": 0.3917879367648046,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.2501327924839052,
+            "bootstrap_low": 0.23930250076490614,
+            "bootstrap_high": 0.2613305598528828,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.38301324819210714,
+            "bootstrap_low": 0.3755905219051154,
+            "bootstrap_high": 0.3912665194474192,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.06684124966462451,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 237,
+            "mean_donor_advantage_difference": 0.1332814775187255,
+            "bootstrap_low": 0.12303725501781777,
+            "bootstrap_high": 0.1436856649690288,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 237,
+            "mean_donor_advantage_change": 0.38301324819210714,
+            "bootstrap_low": 0.3755905219051154,
+            "bootstrap_high": 0.3912665194474192,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P27->P569": {
+        "layer": 1,
+        "n": 165,
+        "baseline": {
+          "target_recall_at_1": 1.0,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 1.0
+        },
+        "effects": {
+          "self_patch": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.4500479817390442,
+            "bootstrap_low": 0.4405808122862469,
+            "bootstrap_high": 0.45942070254773804,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.2618600567181905,
+            "bootstrap_low": 0.2507939095117829,
+            "bootstrap_high": 0.2733622711716276,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.4502052025361495,
+            "bootstrap_low": 0.4410426032091632,
+            "bootstrap_high": 0.4596161218574553,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.09401535211187423,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 165,
+            "mean_donor_advantage_difference": 0.18818792502085369,
+            "bootstrap_low": 0.17773858204032436,
+            "bootstrap_high": 0.19909093714121615,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.4502052025361495,
+            "bootstrap_low": 0.4410426032091632,
+            "bootstrap_high": 0.4596161218574553,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P569->P106": {
+        "layer": 1,
+        "n": 376,
+        "baseline": {
+          "target_recall_at_1": 1.0,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 1.0
+        },
+        "effects": {
+          "self_patch": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.5186694969046624,
+            "bootstrap_low": 0.5099273913004931,
+            "bootstrap_high": 0.527236774042645,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.17709767184358963,
+            "bootstrap_low": 0.17013079838906514,
+            "bootstrap_high": 0.18416602562399623,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.5154999491382153,
+            "bootstrap_low": 0.5071379319685412,
+            "bootstrap_high": 0.5239861252143028,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.1723706864137599,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 376,
+            "mean_donor_advantage_difference": 0.3415718250610727,
+            "bootstrap_low": 0.3324397590883235,
+            "bootstrap_high": 0.3509135179043292,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 376,
+            "mean_donor_advantage_change": 0.5154999491382153,
+            "bootstrap_low": 0.5071379319685412,
+            "bootstrap_high": 0.5239861252143028,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P569->P19": {
+        "layer": 1,
+        "n": 475,
+        "baseline": {
+          "target_recall_at_1": 1.0,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 1.0
+        },
+        "effects": {
+          "self_patch": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.22693509277544524,
+            "bootstrap_low": 0.2236401751825684,
+            "bootstrap_high": 0.2305511194624399,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.16453002603430497,
+            "bootstrap_low": 0.16096951673062226,
+            "bootstrap_high": 0.16827520154338133,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.22641307441811812,
+            "bootstrap_low": 0.2231432634403831,
+            "bootstrap_high": 0.22995346090040708,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.0314635425492337,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 475,
+            "mean_donor_advantage_difference": 0.06240506674114026,
+            "bootstrap_low": 0.05919656843731278,
+            "bootstrap_high": 0.06571112403273582,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 475,
+            "mean_donor_advantage_change": 0.22641307441811812,
+            "bootstrap_low": 0.2231432634403831,
+            "bootstrap_high": 0.22995346090040708,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      },
+      "P569->P27": {
+        "layer": 1,
+        "n": 165,
+        "baseline": {
+          "target_recall_at_1": 1.0,
+          "target_recall_at_3": 1.0,
+          "target_mrr": 1.0
+        },
+        "effects": {
+          "self_patch": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.0,
+            "bootstrap_low": 0.0,
+            "bootstrap_high": 0.0,
+            "permutation_pvalue": 1.0,
+            "positive_rate": 0.0
+          },
+          "same_entity_donor": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.5130941396409815,
+            "bootstrap_low": 0.503084824690313,
+            "bootstrap_high": 0.5234947557657054,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "same_entity_control": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.18206268368345319,
+            "bootstrap_low": 0.16893416852662058,
+            "bootstrap_high": 0.19534872439774598,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          },
+          "different_entity_donor": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.5120055628545357,
+            "bootstrap_low": 0.5019357626365893,
+            "bootstrap_high": 0.5224610849131238,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        },
+        "specificity_margin": 0.16606001637198708,
+        "relation_semantics": {
+          "donor_vs_relation_control": {
+            "n": 165,
+            "mean_donor_advantage_difference": 0.3310314559575283,
+            "bootstrap_low": 0.3170278192875963,
+            "bootstrap_high": 0.3453669227343617,
+            "permutation_pvalue": 4.999750012499375e-05
+          },
+          "portable_donor_effect": {
+            "n": 165,
+            "mean_donor_advantage_change": 0.5120055628545357,
+            "bootstrap_low": 0.5019357626365893,
+            "bootstrap_high": 0.5224610849131238,
+            "permutation_pvalue": 4.999750012499375e-05,
+            "positive_rate": 1.0
+          }
+        }
+      }
+    }
+  },
+  "held_out_verdict": {
+    "relation_semantics_supported": true,
+    "portable_relation_code_supported": true
+  },
+  "held_out_verdict_by_direction": {
+    "P106->P19": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P106->P27": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P106->P569": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P19->P106": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P19->P27": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P19->P569": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P27->P106": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P27->P19": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P27->P569": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P569->P106": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P569->P19": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    },
+    "P569->P27": {
+      "relation_semantics_supported": true,
+      "portable_relation_code_supported": true
+    }
+  }
+}

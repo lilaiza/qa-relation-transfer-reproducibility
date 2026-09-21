@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qa-relation-transfer"
+version = "0.1.0"
+description = "Causal relational-constraint transfer in Retriever-Reader-Verifier QA"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy>=1.26",
+  "pydantic>=2.7",
+  "python-dotenv>=1.0",
+  "transformers>=4.45",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# CPU-only environments. The RX 9070 XT environment must retain the separately
+# installed ROCm-compatible PyTorch wheel.
+cpu = ["torch>=2.2"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,7 @@
+# Additional dependencies for an existing ROCm environment.
+# Do not add torch here: a generic wheel may replace the ROCm-enabled build.
+numpy>=1.26
+pydantic>=2.7
+python-dotenv>=1.0
+pytest>=8.0
+transformers>=4.45

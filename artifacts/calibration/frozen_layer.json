@@ -1,0 +1,65 @@
+{
+  "layer": 1,
+  "selection_metric": "same-entity donor advantage minus same-entity relation-C control",
+  "calibration_relation_semantics": {
+    "layer": 1,
+    "n": 3834,
+    "baseline": {
+      "target_recall_at_1": 0.9473135106937924,
+      "target_recall_at_3": 1.0,
+      "target_mrr": 0.9731351069379238
+    },
+    "effects": {
+      "self_patch": {
+        "n": 3834,
+        "mean_donor_advantage_change": 0.0,
+        "bootstrap_low": 0.0,
+        "bootstrap_high": 0.0,
+        "permutation_pvalue": 1.0,
+        "positive_rate": 0.0
+      },
+      "same_entity_donor": {
+        "n": 3834,
+        "mean_donor_advantage_change": 0.3666427609008865,
+        "bootstrap_low": 0.36268185238428235,
+        "bootstrap_high": 0.37075869911017517,
+        "permutation_pvalue": 4.999750012499375e-05,
+        "positive_rate": 1.0
+      },
+      "same_entity_control": {
+        "n": 3834,
+        "mean_donor_advantage_change": 0.1738931164961652,
+        "bootstrap_low": 0.17058579186594575,
+        "bootstrap_high": 0.17709786013219592,
+        "permutation_pvalue": 4.999750012499375e-05,
+        "positive_rate": 0.9924360980699009
+      },
+      "different_entity_donor": {
+        "n": 3834,
+        "mean_donor_advantage_change": 0.36568511969637735,
+        "bootstrap_low": 0.3617551319598452,
+        "bootstrap_high": 0.369794590971746,
+        "permutation_pvalue": 4.999750012499375e-05,
+        "positive_rate": 1.0
+      }
+    },
+    "specificity_margin": 0.09685364280461523,
+    "relation_semantics": {
+      "donor_vs_relation_control": {
+        "n": 3834,
+        "mean_donor_advantage_difference": 0.19274964440472125,
+        "bootstrap_low": 0.18871969598703509,
+        "bootstrap_high": 0.19686766190218255,
+        "permutation_pvalue": 4.999750012499375e-05
+      },
+      "portable_donor_effect": {
+        "n": 3834,
+        "mean_donor_advantage_change": 0.36568511969637735,
+        "bootstrap_low": 0.3617551319598452,
+        "bootstrap_high": 0.369794590971746,
+        "permutation_pvalue": 4.999750012499375e-05,
+        "positive_rate": 1.0
+      }
+    }
+  }
+}

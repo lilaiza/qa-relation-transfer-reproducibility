@@ -1,0 +1,54 @@
+{
+  "description": "Offline aggregation of downstream fields from the frozen layer-1 test traces",
+  "source": "results/test_end_to_end_capa1_2026-09-08_v1/test_layer1.json",
+  "definitions": {
+    "top_target_rate": "Fraction whose top_passage_id equals target_passage_id",
+    "top_donor_rate": "Fraction whose top_passage_id equals donor_passage_id",
+    "reader_target_exact_match": "Case-folded exact match between reader_answer and the target passage answer",
+    "reader_donor_exact_match": "Case-folded exact match between reader_answer and the donor passage answer",
+    "mean_verifier_passage_support": "Mean verifier_support_probability for the original question and top-ranked passage; it does not compare the Reader answer"
+  },
+  "conditions": {
+    "baseline": {
+      "n": 3678,
+      "top_target_rate": 0.9597607395,
+      "top_donor_rate": 0.0201196302,
+      "reader_target_exact_match": 0.9592169657,
+      "reader_donor_exact_match": 0.0195758564,
+      "mean_verifier_passage_support": 0.9597607396
+    },
+    "self_patch": {
+      "n": 3678,
+      "top_target_rate": 0.9597607395,
+      "top_donor_rate": 0.0201196302,
+      "reader_target_exact_match": 0.9592169657,
+      "reader_donor_exact_match": 0.0195758564,
+      "mean_verifier_passage_support": 0.9597607396
+    },
+    "same_entity_donor": {
+      "n": 3678,
+      "top_target_rate": 0.0266449157,
+      "top_donor_rate": 0.9516041327,
+      "reader_target_exact_match": 0.0266449157,
+      "reader_donor_exact_match": 0.3936922240,
+      "mean_verifier_passage_support": 0.0266449182
+    },
+    "different_entity_donor": {
+      "n": 3678,
+      "top_target_rate": 0.0266449157,
+      "top_donor_rate": 0.9526916803,
+      "reader_target_exact_match": 0.0266449157,
+      "reader_donor_exact_match": 0.3939641109,
+      "mean_verifier_passage_support": 0.0266449182
+    },
+    "same_entity_control": {
+      "display_name": "relation_C",
+      "n": 3678,
+      "top_target_rate": 0.0266449157,
+      "top_donor_rate": 0.0217509516,
+      "reader_target_exact_match": 0.0266449157,
+      "reader_donor_exact_match": 0.0016313214,
+      "mean_verifier_passage_support": 0.0266449182
+    }
+  }
+}
