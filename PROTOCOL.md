@@ -56,11 +56,15 @@ For target evidence `E_A` and donor evidence `E_B`:
 
 `delta = [score(E_B) - score(E_A)]patch - [score(E_B) - score(E_A)]baseline`
 
-Selective transfer is supported only when held-out same-entity donor patches
-have a positive bootstrap lower confidence bound, paired permutation p < .05,
-and a larger mean delta than both natural controls.  The report must include
-all directions separately.  Reader and Verifier changes are secondary evidence
-of downstream propagation.
+The hypotheses use separate held-out criteria. H1 requires a positive
+same-entity donor effect with a positive bootstrap lower confidence bound and
+paired permutation p < .05; the self patch must remain null. H2 requires the
+paired same-entity donor minus relation-C contrast (`B - C`) to satisfy the
+same interval and permutation criteria. H3 requires a positive
+same-relation/different-entity donor effect and reports every direction
+separately. The cross-entity donor is a portability condition, so the protocol
+does not require the same-entity donor to outperform it. Reader and Verifier
+changes are secondary evidence of downstream propagation.
 
 ## Corrected Verifier training
 

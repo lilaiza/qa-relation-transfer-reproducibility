@@ -34,7 +34,12 @@ def main() -> None:
     parser.add_argument("--output", type=Path)
     parser.add_argument("--select-layer", type=Path)
     parser.add_argument("--test", action="store_true", help="apply the pre-registered held-out verdict")
-    parser.add_argument("--selection-objective", choices=("selective", "relation-semantics"), default="selective")
+    parser.add_argument(
+        "--selection-objective",
+        choices=("selective", "relation-semantics"),
+        default="relation-semantics",
+        help="layer-selection and verdict objective; the thesis-facing protocol uses relation-semantics",
+    )
     args = parser.parse_args()
 
     files = sorted(args.input_dir.glob("*_layer*.json"))

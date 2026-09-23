@@ -12,6 +12,11 @@ Version 1.1.0 adds the corrected Verifier replication run from
 2026-09-23. The historical release remains unchanged. Neither version is a Git
 commit captured at the original 2026-09-08 execution time.
 
+Version 1.1.1 corrects the written H1-H3 decision rules, makes the final
+`B - C` analysis objective the command-line default, and supplies explicit
+reconstruction commands. No dataset, frozen layer, model output, metric, or
+experimental interpretation changed from version 1.1.0.
+
 The corrected run records Python 3.12.14, PyTorch
 `2.9.1+rocm7.2.1.gitff65f5bc`, HIP `7.2.53211-e1a6bc5663`, Transformers
 5.14.1, local Arch ROCm 7.2.4 libraries, and an AMD Radeon RX 9070 XT.
@@ -76,9 +81,40 @@ campaign.
 ## Reproducing the GPU experiment
 
 The raw zsRE source and the generated JSONL are not included. Obtain the zsRE
-positive-example source, place it at `data/raw_data/positive_examples`, and
-use the preparation command documented in `PROTOCOL.md` and
-`docs/experiment_runs.md`. The generated final holdout must match:
+positive-example source and place it at `data/raw_data/positive_examples`.
+The literal historical shell commands were not retained. The commands below
+reconstruct the recorded configuration and must not be presented as
+contemporaneous execution logs.
+
+Build the three successive, entity-disjoint controlled benchmarks:
+
+```bash
+python -m qa_relation_transfer.prepare_zsre \
+  --input data/raw_data/positive_examples \
+  --output data/zsre_relation_transfer.jsonl \
+  --manifest data/zsre_relation_transfer.manifest.json \
+  --max-entities 4000 --candidate-multiplier 250 \
+  --evidence-mode controlled
+
+python -m qa_relation_transfer.prepare_zsre \
+  --input data/raw_data/positive_examples \
+  --output data/zsre_relation_semantics_replica.jsonl \
+  --manifest data/zsre_relation_semantics_replica.manifest.json \
+  --max-entities 4000 --candidate-multiplier 250 \
+  --evidence-mode controlled \
+  --exclude-data data/zsre_relation_transfer.jsonl
+
+python -m qa_relation_transfer.prepare_zsre \
+  --input data/raw_data/positive_examples \
+  --output data/zsre_end_to_end_holdout.jsonl \
+  --manifest data/zsre_end_to_end_holdout.manifest.json \
+  --max-entities 4000 --candidate-multiplier 250 \
+  --evidence-mode controlled \
+  --exclude-data data/zsre_relation_transfer.jsonl \
+  --exclude-data data/zsre_relation_semantics_replica.jsonl
+```
+
+The generated final holdout must match:
 
 ```text
 e57e8675f100eb8b9918082f6fd2069d07f3b9e937ae3349569e0ab1d8c12d85
@@ -92,6 +128,35 @@ Verifier was retrained with strict train-entity passage filtering and its
 outputs were recomputed on the already observed test split. The frozen layer,
 Retriever outputs, and Reader outputs were unchanged. This corrected run is a
 post-hoc robustness check, not a second blind held-out test.
+
+The corresponding reconstructed commands for the final corrected pipeline
+are:
+
+```bash
+python -m qa_relation_transfer.train_verifier \
+  --data data/zsre_end_to_end_holdout.jsonl \
+  --output models/verifier_train_entities_only \
+  --device cuda --seed 42 --require-train-passage-entities
+
+python -m qa_relation_transfer.run_interventions \
+  --data data/zsre_end_to_end_holdout.jsonl --split calibration \
+  --output-dir results/calibration --layers 1 2 3 4 5 6 \
+  --verifier-model models/verifier_train_entities_only --device cuda
+
+python -m qa_relation_transfer.analyze_transfer \
+  --input-dir results/calibration \
+  --selection-objective relation-semantics \
+  --select-layer results/calibration/frozen_layer.json
+
+python -m qa_relation_transfer.run_interventions \
+  --data data/zsre_end_to_end_holdout.jsonl --split test \
+  --output-dir results/test \
+  --frozen-layer-file results/calibration/frozen_layer.json \
+  --verifier-model models/verifier_train_entities_only --device cuda
+
+python -m qa_relation_transfer.analyze_transfer \
+  --input-dir results/test --selection-objective relation-semantics --test
+```
 
 ## Large omitted artifacts
 
