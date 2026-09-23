@@ -1,0 +1,63 @@
+{
+  "created_at_utc": "2026-09-23T14:49:40.445086+00:00",
+  "trace": "results/test_verifier_train_entities_only_2026-09-23_v1/test_layer1.json",
+  "unit": "target entity; six directed examples retained together",
+  "seed": 42,
+  "bootstrap_samples": 10000,
+  "permutation_samples": 50000,
+  "results": {
+    "same_entity_donor_minus_baseline": {
+      "entities": 613,
+      "examples": 3678,
+      "examples_per_entity": [
+        6
+      ],
+      "mean": 0.36361232351323325,
+      "bootstrap_95": [
+        0.35891471300405803,
+        0.3683501656458406
+      ],
+      "sign_permutation_pvalue": 1.999960000799984e-05
+    },
+    "relation_C_minus_baseline": {
+      "entities": 613,
+      "examples": 3678,
+      "examples_per_entity": [
+        6
+      ],
+      "mean": 0.17299369090986746,
+      "bootstrap_95": [
+        0.17066190918505417,
+        0.17533684626845575
+      ],
+      "sign_permutation_pvalue": 1.999960000799984e-05
+    },
+    "same_entity_donor_minus_relation_C": {
+      "entities": 613,
+      "examples": 3678,
+      "examples_per_entity": [
+        6
+      ],
+      "mean": 0.1906186326033658,
+      "bootstrap_95": [
+        0.1881605963037836,
+        0.19310851899472475
+      ],
+      "sign_permutation_pvalue": 1.999960000799984e-05
+    },
+    "different_entity_donor_minus_baseline": {
+      "entities": 613,
+      "examples": 3678,
+      "examples_per_entity": [
+        6
+      ],
+      "mean": 0.36269414133193245,
+      "bootstrap_95": [
+        0.35809215827439383,
+        0.36734920305652163
+      ],
+      "sign_permutation_pvalue": 1.999960000799984e-05
+    }
+  },
+  "interpretation": "Post-hoc robustness analysis. It does not replace the historical pre-specified example-level intervals and p-values."
+}

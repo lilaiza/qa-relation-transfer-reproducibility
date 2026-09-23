@@ -41,7 +41,8 @@ before the held-out test. The final test contains 3,678 directed examples from
 ![Downstream propagation](figures/downstream_propagation.svg)
 
 At baseline, target evidence A ranks first in 95.98% of examples, the Reader
-returns the stored A answer in 95.92%, and mean Verifier support is 0.9598.
+returns the stored A answer in 95.92%, and corrected mean Verifier support is
+0.9597.
 After the same-entity B patch, donor evidence B ranks first in 95.16%, the
 Reader retains the A answer in 2.66%, and mean Verifier support falls to
 0.0266. The different-entity B condition shows the same qualitative pattern.
@@ -56,3 +57,8 @@ propagation of the altered retrieval context. The Verifier scores support
 between the original question and the top-ranked passage, not correctness of
 the Reader's extracted answer.
 
+The Verifier values come from the 2026-09-23 corrected training run, which
+excluded every passage from calibration and test entities. Its threshold-0.5
+decisions are identical to the historical run. Because this correction reused
+an already observed test split, it is post-hoc robustness evidence rather than
+a second blind confirmation. Retrieval and Reader results are unchanged.

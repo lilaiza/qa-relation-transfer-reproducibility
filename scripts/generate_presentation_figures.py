@@ -1,9 +1,10 @@
 """Generate dependency-free SVG figures from the end-to-end held-out run."""
 import json
+import gzip
 from collections import defaultdict
 from pathlib import Path
 
-RUN = Path("results/test_end_to_end_capa1_2026-09-08_v1/test_layer1.json")
+RUN = Path("artifacts/test/test_layer1.json.gz")
 OUT = Path("docs/figures")
 
 def svg_bar(labels, series, title, path):
@@ -27,7 +28,9 @@ def svg_bar(labels, series, title, path):
         legend_x += 40 + len(name) * 8
     path.write_text(''.join(parts)+'</svg>')
 
-rows=json.loads(RUN.read_text())["rows"]; groups=defaultdict(list)
+with gzip.open(RUN, "rt", encoding="utf-8") as source:
+    rows = json.load(source)["rows"]
+groups=defaultdict(list)
 for r in rows: groups[r["condition"]].append(r)
 conds=["baseline","same_entity_donor","different_entity_donor"]
 top_target=[]; top_donor=[]; reader_target=[]; verifier=[]

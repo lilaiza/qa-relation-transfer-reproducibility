@@ -89,7 +89,7 @@ def test_stratified_smoke_sampling_is_reproducible_and_balanced_for_available_di
 
 def test_assessment_recommends_scaling_for_promising_affordable_smoke():
     report = assess_smoke(_metadata(), _layer_payloads())
-    assert report["recommendation"] == "scale"
+    assert report["recommendation"] == "escalar"
     assert report["promising_layers"] == list(SMOKE_LAYERS)
     assert report["timing"]["projected_within_target"] is True
     assert report["advisory_only"] is True
@@ -97,12 +97,12 @@ def test_assessment_recommends_scaling_for_promising_affordable_smoke():
 
 def test_assessment_recommends_diagnostic_scaling_for_ambiguous_affordable_smoke():
     report = assess_smoke(_metadata(), _layer_payloads(promising=False))
-    assert report["recommendation"] == "scale for diagnosis"
+    assert report["recommendation"] == "escalar por diagnóstico"
 
 
 def test_assessment_flags_incomplete_coverage_and_excessive_projection():
     report = assess_smoke(_metadata(complete=False), _layer_payloads(), target_seconds=10)
-    assert report["recommendation"] == "iterate"
+    assert report["recommendation"] == "iterar"
     assert "smoke coverage is incomplete" in report["errors"]
     assert report["timing"]["projected_within_target"] is False
 

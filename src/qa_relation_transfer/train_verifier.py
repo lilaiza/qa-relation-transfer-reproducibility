@@ -11,15 +11,17 @@ from torch.utils.data import DataLoader
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 from .agents import VERIFIER_MODEL
-from .dataset import load_jsonl, stable_seed
+from .dataset import load_jsonl, split_for_entity, stable_seed
 from .hf_config import hf_token
 from .schemas import Split
 
 
-def verifier_rows(examples):
+def verifier_rows(examples, *, require_train_passage_entities: bool = False):
     rows = []
     for example in examples:
         for passage in example.passages:
+            if require_train_passage_entities and split_for_entity(passage.entity_id) != Split.TRAIN:
+                continue
             rows.append((example.question, passage.text, int(passage.id == example.target_passage_id)))
     return rows
 
@@ -36,11 +38,19 @@ def main() -> None:
     parser.add_argument("--profile", choices=("formal", "smoke"), default="formal")
     parser.add_argument("--limit", type=int, help="maximum train examples; smoke default is 32")
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--require-train-passage-entities",
+        action="store_true",
+        help="exclude training pairs whose passage entity is assigned to calibration or test",
+    )
     args = parser.parse_args()
     if args.device == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("GPU requested but PyTorch cannot access CUDA/ROCm")
     if args.output.exists():
         raise FileExistsError(f"refusing to overwrite verifier output {args.output}")
+    torch.manual_seed(args.seed)
+    if args.device == "cuda":
+        torch.cuda.manual_seed_all(args.seed)
 
     all_train_examples = [example for example in load_jsonl(args.data) if example.split == Split.TRAIN]
     if args.profile == "smoke":
@@ -54,7 +64,8 @@ def main() -> None:
     examples = sorted(all_train_examples, key=lambda example: (stable_seed("verifier-smoke", example.id, seed=args.seed), example.id))
     if limit:
         examples = examples[:limit]
-    rows = verifier_rows(examples)
+    unfiltered_pair_count = sum(len(example.passages) for example in examples)
+    rows = verifier_rows(examples, require_train_passage_entities=args.require_train_passage_entities)
     if not rows:
         raise ValueError("no train verifier rows")
     started_at = datetime.now(UTC)
@@ -97,6 +108,9 @@ def main() -> None:
         "full_train_examples": len(all_train_examples),
         "examples": len(examples),
         "pairs": len(rows),
+        "unfiltered_pairs": unfiltered_pair_count,
+        "excluded_non_train_passage_pairs": unfiltered_pair_count - len(rows),
+        "require_train_passage_entities": args.require_train_passage_entities,
         "selected_example_ids": [example.id for example in examples],
         "epochs": epochs,
         "batch_size": batch_size,

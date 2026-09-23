@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 from qa_relation_transfer.agents import donor_for_condition, patch_relation_span, relation_token_indices
-from qa_relation_transfer.dataset import RELATIONS, RelationFact, assert_no_entity_leakage, build_examples, load_zsre_records, question_and_span
+from qa_relation_transfer.dataset import RELATIONS, RelationFact, assert_no_entity_leakage, build_examples, load_zsre_records, question_and_span, split_for_entity
 from qa_relation_transfer.evaluation import paired_condition_effect, retrieval_metrics, summarize_layer
 from qa_relation_transfer.schemas import PatchCondition, Split
+from qa_relation_transfer.train_verifier import verifier_rows
 
 
 def facts_for(entity_id: str, label: str):
@@ -97,6 +98,18 @@ def test_natural_donor_controls_keep_entity_and_relation_contracts():
     assert same_control.entity_id == target.entity_id
     assert different_entity.entity_id != target.entity_id
     assert different_entity.relation_id == same_entity.relation_id
+
+
+def test_verifier_training_can_exclude_non_train_passage_entities():
+    built = examples()
+    train_examples = [example.model_copy(update={"split": Split.TRAIN}) for example in built[:2]]
+    rows = verifier_rows(train_examples, require_train_passage_entities=True)
+    expected = sum(
+        split_for_entity(passage.entity_id) == Split.TRAIN
+        for example in train_examples
+        for passage in example.passages
+    )
+    assert len(rows) == expected
 
 
 def test_primary_metric_is_paired_donor_advantage_change():

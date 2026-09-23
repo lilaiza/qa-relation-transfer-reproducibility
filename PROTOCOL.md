@@ -45,7 +45,7 @@ the same entity E.  Relation C for E is a same-entity semantic control.
 
 1. Evaluate layers 1–6 on calibration only.
 2. Select exactly one layer by the largest mean same-entity donor advantage
-   minus the mean of the two natural controls.
+   over the same-entity relation-C control (`B - C`).
 3. Write the selected layer to `frozen_layer.json`.
 4. Run the identical five conditions on test with that file.  The test runner
    rejects an unfrozen layer.
@@ -61,3 +61,16 @@ have a positive bootstrap lower confidence bound, paired permutation p < .05,
 and a larger mean delta than both natural controls.  The report must include
 all directions separately.  Reader and Verifier changes are secondary evidence
 of downstream propagation.
+
+## Corrected Verifier training
+
+The Verifier uses questions from the train split. A question-passage pair is
+retained only if the passage entity also maps to the train split under the
+same deterministic entity split. This produces 83,437 pairs: 16,488 positives
+and 66,949 negatives. Filtering rather than replacing reserved external
+negatives leaves between three and six pairs per training example.
+
+The 2026-09-23 corrected evaluation reuses historical layer 1 without new
+selection. Because the test results were already observed, it is reported as
+a post-hoc correction and robustness analysis. It does not restore the status
+of an untouched blind test for downstream Verifier probabilities.

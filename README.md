@@ -7,15 +7,14 @@ Fallstudie zur dokumentbasierten Fragebeantwortung*.
 
 ## Status and provenance
 
-This is a post-experiment archival snapshot assembled on 2026-09-21 from the
-project files that remained after the runs. It is not a Git commit captured at
-the original execution time. The historical record did not retain the exact
-shell command, Python version, ROCm package version, or Transformers version;
-these values are therefore not reconstructed retrospectively.
+Version 1.0.0 is the post-experiment archival snapshot assembled on 2026-09-21.
+Version 1.1.0 adds the corrected Verifier replication run from
+2026-09-23. The historical release remains unchanged. Neither version is a Git
+commit captured at the original 2026-09-08 execution time.
 
-The preserved metadata records PyTorch
-`2.9.1+rocm7.2.1.gitff65f5bc`, HIP `7.2.53211-e1a6bc5663`, device `cuda`, and
-an AMD Radeon RX 9070 XT. The experiment log documents all known limitations.
+The corrected run records Python 3.12.14, PyTorch
+`2.9.1+rocm7.2.1.gitff65f5bc`, HIP `7.2.53211-e1a6bc5663`, Transformers
+5.14.1, local Arch ROCm 7.2.4 libraries, and an AMD Radeon RX 9070 XT.
 
 ## Contents
 
@@ -31,6 +30,7 @@ an AMD Radeon RX 9070 XT. The experiment log documents all known limitations.
 - `docs/experiment_runs.md`: final experiment record reconstructed from the
   preserved run artifacts, with explicit provenance limitations.
 - `docs/downstream_metrics.json`: independently recomputed downstream values.
+- `artifacts/audit/`: strict split and entity-clustered robustness audits.
 - `CHECKSUMS.sha256`: integrity hashes for every preserved file.
 
 ## Main experimental facts
@@ -40,8 +40,10 @@ example has six candidate passages. The entity-disjoint split contains 16,488
 train, 3,834 calibration, and 3,678 test examples. Layer 1 was selected only
 on calibration and then frozen before the held-out test.
 
-The Verifier was trained from `cross-encoder/nli-deberta-v3-base` for two
-epochs over 98,928 question-passage pairs. The Retriever was
+The corrected Verifier was trained from `cross-encoder/nli-deberta-v3-base`
+for two epochs over 83,437 question-passage pairs. Every retained passage
+belongs to a train entity; 15,491 candidate pairs from calibration or test
+entities were excluded. The Retriever was
 `sentence-transformers/msmarco-MiniLM-L6-cos-v5`; the Reader was
 `deepset/roberta-base-squad2`.
 
@@ -82,11 +84,14 @@ use the preparation command documented in `PROTOCOL.md` and
 e57e8675f100eb8b9918082f6fd2069d07f3b9e937ae3349569e0ab1d8c12d85
 ```
 
-The full sequence is: prepare the deterministic dataset, train the Verifier on
-the train split, evaluate layers 1–6 on calibration, freeze the selected layer,
-and evaluate that configuration once on test. The historical commands in the
-experiment log that are marked as reconstructed must not be treated as exact
-recorded shell history.
+The historical sequence was: prepare the deterministic dataset, train the
+Verifier, evaluate layers 1–6 on calibration, freeze layer 1, and evaluate it
+on test. A later audit found that globally selected external negative passages
+had exposed the historical Verifier to reserved entities. On 2026-09-23 the
+Verifier was retrained with strict train-entity passage filtering and its
+outputs were recomputed on the already observed test split. The frozen layer,
+Retriever outputs, and Reader outputs were unchanged. This corrected run is a
+post-hoc robustness check, not a second blind held-out test.
 
 ## Large omitted artifacts
 
@@ -95,10 +100,10 @@ are large and are not required to audit the published aggregate metrics:
 
 - final holdout JSONL — SHA-256
   `e57e8675f100eb8b9918082f6fd2069d07f3b9e937ae3349569e0ab1d8c12d85`;
-- uncompressed held-out trace — SHA-256
-  `a1c8df8cf0e5833065ac31ab94471685bc8b492739568fd52e7beb77459418e4`;
+- corrected uncompressed held-out trace — SHA-256
+  `63fc19253187a6544918b056800d85edf7352c2d59909cacbcdb6587db7b0c72`;
 - fine-tuned Verifier checkpoint — SHA-256
-  `9dd748facf04ddd37143098e2e4a8159081d441b72ea639f0219b73f8c82faa6`.
+  `b5ea6c7b069dac901d6cb91ea916d7de3ac9f00e971f574dfb0b87144f974060`.
 
 The compressed held-out trace is included and expands to the exact
 uncompressed trace hash listed above.

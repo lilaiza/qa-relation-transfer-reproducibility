@@ -75,3 +75,58 @@
 - Independently recomputed downstream metrics:
   `docs/downstream_metrics.json`.
 
+## `2026-09-23__verifier_strict_train_entities__v1`
+
+- **Status:** Completed corrective Verifier training and post-hoc test
+  evaluation; executed by the thesis author.
+- **Reason:** The historical training questions were train-only, but globally
+  chosen external negative passages exposed the model to all 639 calibration
+  and 613 test entities. This contradicted the claimed entity-level isolation.
+- **Correction:** Retain a question-passage pair only when the passage entity
+  also belongs to train. The run used seed 42, two epochs, batch size 16 and
+  learning rate 2e-5.
+- **Training data:** 16,488 questions; 83,437 retained pairs from 2,748 train
+  passage entities: 16,488 positive and 66,949 negative. It excluded 15,491
+  of the 98,928 original candidate pairs. Examples retain between three and
+  six pairs because reserved negatives are filtered rather than replaced.
+- **Environment:** Python 3.12.14; PyTorch
+  `2.9.1+rocm7.2.1.gitff65f5bc`; HIP `7.2.53211-e1a6bc5663`;
+  Transformers 5.14.1; local Arch ROCm 7.2.4 libraries; AMD Radeon RX 9070 XT
+  as `cuda:0`.
+- **Timing:** Training began `2026-09-23T13:37:50Z`; training took 1,022.93 s
+  and total training-process time was 1,024.85 s. Corrected evaluation began
+  `2026-09-23T14:04:24Z` and took 332.13 s total.
+- **Frozen configuration:** Historical layer 1 was reused without reselection.
+  Test was not used to select a layer.
+- **Audit:** All 18,390 evaluated Top-1 passages belong to test entities and
+  none appeared in corrected training. Retriever rankings/scores and Reader
+  outputs equal the historical trace row for row. No Verifier decision at
+  threshold 0.5 changed.
+- **Corrected means:** Baseline and self patch 0.959749518; same-entity donor
+  and relation-C control 0.026649742; different-entity donor 0.026649741.
+- **Interpretation:** The exposure flaw does not explain the downstream H4
+  pattern. This is a post-hoc correction using an already observed test split,
+  not a second blind test. The variable number of retained negatives also
+  limits causal attribution of tiny probability changes solely to removing
+  reserved entities.
+
+## `2026-09-23__entity_clustered_inference__v1`
+
+- **Status:** Completed post-hoc CPU robustness analysis on the corrected
+  stored trace; no model inference.
+- **Reason:** The 3,678 directed examples comprise six observations for each
+  of 613 target entities. The historical inference resampled examples rather
+  than keeping each entity cluster together.
+- **Method:** Average the six paired effects within each entity, bootstrap the
+  613 entity means with 10,000 samples, and perform 50,000 entity-level sign
+  permutations; seed 42.
+- **Results:** Same-entity donor minus baseline = 0.36361, 95% interval
+  [0.35891, 0.36835]; relation C minus baseline = 0.17299
+  [0.17066, 0.17534]; donor B minus relation C = 0.19062
+  [0.18816, 0.19311]; different-entity donor minus baseline = 0.36269
+  [0.35809, 0.36735]. All four sign-permutation p-values are 0.00002.
+- **Interpretation:** The aggregate conclusions remain unchanged when target
+  entity is the resampling unit. This is a post-hoc robustness analysis and
+  does not retrospectively replace the pre-specified example-level inference.
+- **Artifacts:** `artifacts/audit/clustered_inference.json` and
+  `scripts/audit_clustered_inference.py`.

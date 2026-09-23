@@ -1,11 +1,14 @@
 {
   "profile": "formal",
-  "started_at_utc": "2026-09-07T23:41:58.583910+00:00",
+  "started_at_utc": "2026-09-23T13:37:50.614429+00:00",
   "base_model": "cross-encoder/nli-deberta-v3-base",
   "split": "train",
   "full_train_examples": 16488,
   "examples": 16488,
-  "pairs": 98928,
+  "pairs": 83437,
+  "unfiltered_pairs": 98928,
+  "excluded_non_train_passage_pairs": 15491,
+  "require_train_passage_entities": true,
   "selected_example_ids": [
     "Rick_Salutin:P19->P569",
     "Abbas_Araghchi:P27->P19",
@@ -16502,8 +16505,8 @@
   "device": "cuda",
   "torch": "2.9.1+rocm7.2.1.gitff65f5bc",
   "hip": "7.2.53211-e1a6bc5663",
-  "model_initialization_seconds": 1.5752881099979277,
-  "training_seconds": 1216.3114272940002,
-  "duration_seconds": 1217.8874057400026,
+  "model_initialization_seconds": 1.9126834930000314,
+  "training_seconds": 1022.9331719290001,
+  "duration_seconds": 1024.8466135159997,
   "checkpoint_saved": true
 }
